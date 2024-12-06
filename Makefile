@@ -27,13 +27,10 @@ lint:tool/.golangci-lint.$(GOLANGCI_LINT_VERSION)
 fix:tool/.golangci-lint.$(GOLANGCI_LINT_VERSION)
 	@echo "Fixing lint issues..."	@tool/golangci-lint run --fix $(PACKAGE_DIR)/...
 
-# Run the program
-run:
-	build	@echo "Running the program..."  |  @./bin/$(BINARY_NAME)
-
 # Clean up generated files
 clean:
-	@echo "Cleaning up..." | @rm -rf bin/$(BINARY_NAME)
+	@echo "Cleaning up..."
+	@rm -rf bin/$(BINARY_NAME)
 
 # Install golangci-lint locally if not available
 GOLANGCI_LINT := $(shell which golangci-lint)
@@ -43,7 +40,8 @@ lint: install-lint
 endif
 
 install-lint:
-	@echo "Installing golangci-lint..." | @curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s --
+	@echo "Installing golangci-lint..."
+ 	@curl -sSfL https://raw.githubusercontent.com/golangci/golangci-lint/master/install.sh | sh -s --
 
 # Ensure tool is built
 tool: tool/golangci-lint

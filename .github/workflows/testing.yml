@@ -40,6 +40,3 @@ jobs:
 
       - name: Lint the Code
         run: make lint
-
-      - name: Run the Crawler
-        run: make run

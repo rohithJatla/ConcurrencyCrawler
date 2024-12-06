@@ -1,3 +1,3 @@
-module github.com/rohithJatla/concurrencycrawler
+module github.com/yourusername/concurrencycrawler
 
-go 1.23
+go 1.20
